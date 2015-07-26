@@ -1,0 +1,11 @@
+# we don't need to include peoples TODOs
+TODO
+
+# ignore binaries
+bin
+
+# no mac osx cruft
+.DS_Store
+
+# ignore test binaries
+tests/buffer_test
