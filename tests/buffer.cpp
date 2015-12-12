@@ -125,7 +125,7 @@ void closed_buffer() {
   step("write to a closed buffer");
   buffer.enqueue(4); // should be a noop
 
-  step("check we can read data writted before the buffer was closed");
+  step("check we can read data written before the buffer was closed");
   if (buffer.dequeue() != 1) {
     throw logic_error("should have been able to read '1' from the buffer");
   }
@@ -173,8 +173,6 @@ void buffer_close_releases_blocked_consumer() {
   if(!exception_thrown) {
     throw logic_error("an exception was not thrown by the closed buffer");
   }
-
-
 }
 
 int main() {
