@@ -6,21 +6,19 @@
 #include <atomic>
 #include <string>
 
-using namespace std;
-
 namespace mtxbuf {
   struct buffer_closed : public std::logic_error {
-    explicit buffer_closed(string msg="buffer is closed"): std::logic_error(msg) {}
+    explicit buffer_closed(std::string msg="buffer is closed"): std::logic_error(msg) {}
   };
 
   template<typename T>
   class buffer {
-    queue<T> ns;
+    std::queue<T> ns;
     size_t max;
-    mutex mtx;
-    condition_variable c_empty;
-    condition_variable c_full;
-    atomic<bool> closed;
+    std::mutex mtx;
+    std::condition_variable c_empty;
+    std::condition_variable c_full;
+    std::atomic<bool> closed;
 
   public:
     explicit buffer(size_t max = 1024): max(max), closed{false} {};

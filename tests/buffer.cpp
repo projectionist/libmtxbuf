@@ -5,7 +5,7 @@
 #include <thread>
 
 #include <unistd.h>
-#include "tests.h"
+#include "tests.hpp"
 
 using namespace std;
 
